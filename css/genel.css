@@ -1,0 +1,568 @@
+/*
+  genel.css
+  Tüm sayfalarda ortak kullanılan temel stiller:
+  reset, CSS değişkenleri, tipografi, header, footer, yardımcı sınıflar.
+*/
+
+/* ---------- CSS Değişkenleri (Tasarım Sistemi) ---------- */
+:root {
+  --ana-bordo: #8B1A2B;
+  --koyu-bordo: #6B1420;
+  --acik-bordo: #A82040;
+  --altin-sari: #D4A843;
+  --krem-beyaz: #FFF8F0;
+  --beyaz: #FFFFFF;
+  --koyu-gri: #2D2D2D;
+  --orta-gri: #6B7280;
+  --acik-gri: #F3F4F6;
+  --kenarlik-gri: #E5E7EB;
+
+  /* Kategori renkleri */
+  --renk-konser: #E63946;
+  --renk-tiyatro: #8338EC;
+  --renk-konferans: #1D3557;
+  --renk-seminer: #2A9D8F;
+  --renk-spor: #E76F51;
+  --renk-atolye: #F4A261;
+  --renk-festival: #E91E63;
+  --renk-soylesi: #3F51B5;
+  --renk-sergi: #795548;
+  --renk-film: #455A64;
+  --renk-mezuniyet: #8B1A2B;
+
+  /* Gölgeler */
+  --golge-hafif: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --golge-orta: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --golge-yogun: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Yuvarlaklık */
+  --yuvarlak-kucuk: 6px;
+  --yuvarlak-orta: 12px;
+  --yuvarlak-buyuk: 20px;
+
+  /* Geçişler */
+  --gecis-hizli: all 0.2s ease;
+  --gecis-normal: all 0.3s ease;
+
+  /* Fontlar */
+  --font-baslik: 'Merriweather', Georgia, serif;
+  --font-govde: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-govde);
+  color: var(--koyu-gri);
+  background-color: var(--krem-beyaz);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--ana-bordo);
+  text-decoration: none;
+  transition: var(--gecis-hizli);
+}
+
+a:hover {
+  color: var(--koyu-bordo);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ---------- Tipografi ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-baslik);
+  color: var(--ana-bordo);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+.sayfa-icerik {
+  flex: 1;
+}
+
+.bolum {
+  padding: 3rem 0;
+}
+
+.kapsayici {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.bolum-baslik {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.bolum-baslik::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--altin-sari);
+  border-radius: 2px;
+}
+
+/* ---------- Header (Tüm Sayfalarda Ortak) ---------- */
+.ana-header {
+  background-color: var(--beyaz);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--ana-bordo);
+  transition: var(--gecis-normal);
+}
+
+.ana-header.golgeli {
+  box-shadow: var(--golge-orta);
+}
+
+.header-icerik {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-alan {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ana-bordo);
+}
+
+.logo-svg {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+/* Logo — büyük, ortalanmış, arka plan yok */
+.logo-img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* Footer logosu — şeffaf zemin, büyük ve belirgin */
+.logo-img-footer {
+  width: 96px;
+  height: 96px;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+.logo-yazi {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-baslik {
+  font-family: var(--font-baslik);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ana-bordo);
+}
+
+.logo-alt-baslik {
+  font-size: 0.75rem;
+  color: var(--orta-gri);
+  letter-spacing: 0.5px;
+}
+
+.ana-navigasyon {
+  display: flex;
+  align-items: center;
+}
+
+.nav-liste {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-liste a {
+  color: var(--koyu-gri);
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--yuvarlak-kucuk);
+  transition: var(--gecis-hizli);
+  position: relative;
+}
+
+.nav-liste a:hover {
+  color: var(--ana-bordo);
+  background: var(--acik-gri);
+}
+
+.nav-liste a.aktif {
+  color: var(--ana-bordo);
+  font-weight: 700;
+}
+
+.nav-liste a.aktif::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0;
+  height: 3px;
+  background: var(--altin-sari);
+  border-radius: 2px;
+}
+
+.hamburger-buton {
+  display: none;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.hamburger-buton span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--ana-bordo);
+  border-radius: 2px;
+  transition: var(--gecis-normal);
+}
+
+.hamburger-buton.aktif span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-buton.aktif span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-buton.aktif span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---------- Footer (Tüm Sayfalarda Ortak) ---------- */
+.ana-footer {
+  background: linear-gradient(135deg, var(--koyu-bordo), var(--ana-bordo));
+  color: var(--beyaz);
+  padding: 3rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer-icerik {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 2rem;
+}
+
+.footer-sutun h4 {
+  color: var(--altin-sari);
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  font-family: var(--font-baslik);
+}
+
+.footer-sutun p,
+.footer-sutun li {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-sutun a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-sutun a:hover {
+  color: var(--altin-sari);
+}
+
+.footer-logo-alan {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-logo-alan .logo-baslik {
+  color: var(--beyaz);
+}
+
+.footer-logo-alan .logo-alt-baslik {
+  color: var(--altin-sari);
+}
+
+.sosyal-ikonlar {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.sosyal-ikonlar a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--gecis-hizli);
+}
+
+.sosyal-ikonlar a:hover {
+  background: var(--altin-sari);
+  transform: translateY(-3px);
+}
+
+.sosyal-ikonlar svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--beyaz);
+}
+
+.footer-iletisim-satir {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-alt {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---------- Scroll-to-Top Butonu ---------- */
+.yukari-don {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ana-bordo);
+  color: var(--beyaz);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--golge-orta);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--gecis-normal);
+  z-index: 99;
+  font-size: 1.25rem;
+}
+
+.yukari-don.gorunur {
+  opacity: 1;
+  visibility: visible;
+}
+
+.yukari-don:hover {
+  background: var(--koyu-bordo);
+  transform: translateY(-3px);
+}
+
+/* ---------- Yardımcı Sınıflar ---------- */
+.metin-merkez { text-align: center; }
+.gizle { display: none !important; }
+
+.yukleniyor {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--orta-gri);
+  font-size: 1.1rem;
+}
+
+/* ---------- Animasyonlar ---------- */
+@keyframes solmaIcinde {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.solma-animasyonu {
+  animation: solmaIcinde 0.5s ease forwards;
+}
+
+/*
+  Kaydırmalı görünüm: IntersectionObserver bu elemana .gorunur sınıfını
+  ekleyince yumuşakça aşağıdan yukarıya doğru fade-in olur.
+*/
+.reveal-kart {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-kart.gorunur {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+  .footer-icerik {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-sutun:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  html { font-size: 15px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.625rem; }
+  h3 { font-size: 1.25rem; }
+
+  .hamburger-buton {
+    display: flex;
+  }
+
+  .ana-navigasyon {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--beyaz);
+    border-top: 1px solid var(--kenarlik-gri);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .ana-navigasyon.acik {
+    max-height: 400px;
+    box-shadow: var(--golge-orta);
+  }
+
+  .nav-liste {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .nav-liste a {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-liste a.aktif::after {
+    display: none;
+  }
+
+  .nav-liste a.aktif {
+    background: var(--acik-gri);
+  }
+
+  .footer-icerik {
+    grid-template-columns: 1fr;
+  }
+
+  .bolum {
+    padding: 2rem 0;
+  }
+
+  .yukari-don {
+    bottom: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 575px) {
+  .kapsayici {
+    padding: 0 0.75rem;
+  }
+  .logo-baslik { font-size: 0.95rem; }
+  .logo-alt-baslik { font-size: 0.7rem; }
+  .logo-svg { width: 40px; height: 40px; }
+  .logo-img { width: 52px; height: 52px; }
+}

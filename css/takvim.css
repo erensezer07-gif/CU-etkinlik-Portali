@@ -1,0 +1,629 @@
+/*
+  takvim.css
+  Takvim sayfası için özel stiller.
+  Profesyonel, interaktif takvim tasarımı.
+*/
+
+.takvim-hero {
+  background: linear-gradient(135deg, var(--ana-bordo), var(--koyu-bordo)), url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  color: var(--beyaz);
+  padding: 80px 24px;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 32px;
+}
+
+.takvim-hero h1 {
+  color: var(--beyaz);
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.takvim-hero .hero-alt-baslik {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-alt-baslik {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+.takvim-duzen {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.takvim-ana {
+  flex: 1;
+  min-width: 0;
+  background: var(--beyaz);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.takvim-sidebar {
+  width: 340px;
+  background: var(--beyaz);
+  border-radius: 16px;
+  padding: 28px;
+  align-self: flex-start;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: none;
+}
+
+/* Takvim Kontrolleri */
+.takvim-kontroller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--kenarlik-gri);
+}
+
+.takvim-baslik {
+  font-size: 1.5rem;
+  color: var(--ana-bordo);
+  font-weight: 700;
+  margin: 0;
+}
+
+.takvim-nav-buton {
+  background: var(--acik-gri);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--koyu-gri);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.takvim-nav-buton:hover {
+  background: var(--ana-bordo);
+  color: var(--beyaz);
+  transform: scale(1.05);
+}
+
+.takvim-bugun-buton {
+  margin-left: 16px;
+}
+
+/* Takvim Grid */
+.takvim-grid-kapsayici {
+  margin-bottom: 32px;
+}
+
+.takvim-gunler-baslik {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--orta-gri);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--acik-gri);
+}
+
+.takvim-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.takvim-gun {
+  aspect-ratio: 1;
+  background: var(--acik-gri);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.takvim-gun:hover {
+  background: #E5E7EB;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.takvim-gun.aktif {
+  border-color: var(--ana-bordo);
+  background: var(--krem-beyaz);
+  box-shadow: 0 4px 16px rgba(139, 26, 43, 0.15);
+}
+
+.takvim-gun.gecmis-ay,
+.takvim-gun.gelecek-ay {
+  opacity: 0.4;
+}
+
+.takvim-gun.bugun {
+  background: var(--krem-beyaz);
+  border-color: var(--altin-sari);
+}
+
+.takvim-gun.bugun .gun-sayi {
+  color: var(--ana-bordo);
+  font-weight: 700;
+}
+
+.gun-sayi {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--koyu-gri);
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
+
+/* Etkinlik olan günlerin görsel göstergesi */
+.takvim-gun.etkinlik-var {
+  background: linear-gradient(135deg, #fef3f4, #fce4ec);
+  cursor: pointer;
+}
+
+.takvim-gun.etkinlik-var:hover {
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+}
+
+.gun-noktalar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  justify-content: flex-end;
+  margin-top: auto;
+  align-items: center;
+}
+
+/* Etkinlik emoji marker (takvim üzerinde görsel gösterge) */
+.etkinlik-marker {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  background: var(--ana-bordo);
+  color: var(--beyaz);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(139, 26, 43, 0.3);
+}
+
+.etkinlik-marker:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(139, 26, 43, 0.4);
+}
+
+.etkinlik-marker.marker-konser { background: var(--renk-konser); }
+.etkinlik-marker.marker-tiyatro { background: var(--renk-tiyatro); }
+.etkinlik-marker.marker-konferans { background: var(--renk-konferans); }
+.etkinlik-marker.marker-seminer { background: var(--renk-seminer); }
+.etkinlik-marker.marker-spor { background: var(--renk-spor); }
+.etkinlik-marker.marker-atolye { background: var(--renk-atolye); }
+.etkinlik-marker.marker-festival { background: var(--renk-festival); }
+.etkinlik-marker.marker-soylesi { background: var(--renk-soylesi); }
+.etkinlik-marker.marker-sergi { background: var(--renk-sergi); }
+.etkinlik-marker.marker-film-gosterimi { background: var(--renk-film); }
+.etkinlik-marker.marker-mezuniyet { background: var(--renk-mezuniyet); }
+
+.etkinlik-coklu-marker {
+  font-size: 0.65rem;
+  color: var(--orta-gri);
+  font-weight: 700;
+  line-height: 1;
+  margin-left: 1px;
+}
+
+.etkinlik-nokta {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--ana-bordo);
+}
+
+.etkinlik-sayisi {
+  font-size: 0.75rem;
+  color: var(--koyu-gri);
+  font-weight: 500;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* ---- Seçili Gün Detayı (Profesyonel Panel) ---- */
+.secili-gun-detay {
+  background: var(--beyaz);
+  border-radius: 16px;
+  padding: 0;
+  border: 1px solid var(--kenarlik-gri);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.secili-gun-baslik {
+  padding: 24px 28px;
+  background: linear-gradient(135deg, var(--ana-bordo), var(--koyu-bordo));
+  color: var(--beyaz);
+}
+
+.secili-gun-baslik h3 {
+  color: var(--beyaz);
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.secili-gun-baslik p {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.secili-gun-baslik.bos-gun {
+  background: var(--acik-gri);
+}
+
+.secili-gun-baslik.bos-gun h3 {
+  color: var(--koyu-gri);
+}
+
+.secili-gun-baslik.bos-gun p {
+  color: var(--orta-gri);
+}
+
+.secili-gun-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---- Profesyonel Etkinlik Detay Kartı (Takvim İçi) ---- */
+.gun-etkinlik-kart {
+  display: flex;
+  background: var(--beyaz);
+  padding: 0;
+  gap: 0;
+  align-items: stretch;
+  border-bottom: 1px solid var(--kenarlik-gri);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gun-etkinlik-kart:last-child {
+  border-bottom: none;
+}
+
+.gun-etkinlik-kart:hover {
+  background: linear-gradient(90deg, var(--krem-beyaz), var(--beyaz));
+}
+
+.gun-etkinlik-kart:hover .kart-detay-gorsel img {
+  transform: scale(1.05);
+}
+
+.kart-detay-gorsel {
+  width: 140px;
+  min-height: 120px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.kart-detay-gorsel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.kart-detay-gorsel .kategori-badge-mini {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--beyaz);
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.gun-etkinlik-icerik {
+  flex: 1;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.gun-etkinlik-zaman-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--ana-bordo);
+  font-weight: 600;
+  background: rgba(139, 26, 43, 0.08);
+  padding: 3px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.gun-etkinlik-baslik {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--koyu-gri);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.gun-etkinlik-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--orta-gri);
+}
+
+.gun-etkinlik-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gun-etkinlik-aciklama {
+  font-size: 0.825rem;
+  color: var(--orta-gri);
+  line-height: 1.5;
+  margin: 4px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gun-etkinlik-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.gun-etkinlik-ucret {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--koyu-gri);
+  background: var(--acik-gri);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.gun-etkinlik-link {
+  color: var(--beyaz);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  background: var(--ana-bordo);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gun-etkinlik-link:hover {
+  background: var(--koyu-bordo);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(139, 26, 43, 0.3);
+  color: var(--beyaz);
+}
+
+/* ---- Yaklaşan Etkinlikler Sidebar (Profesyonel) ---- */
+.sidebar-baslik {
+  font-size: 1.15rem;
+  color: var(--ana-bordo);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--kenarlik-gri);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yaklasan-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yaklasan-kart {
+  background: var(--beyaz);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid var(--kenarlik-gri);
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.yaklasan-kart:first-child {
+  border: 2px solid var(--ana-bordo);
+  box-shadow: 0 4px 16px rgba(139, 26, 43, 0.12);
+}
+
+.yaklasan-kart:first-child .yaklasan-spotlight {
+  display: flex;
+}
+
+.yaklasan-kart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border-color: var(--ana-bordo);
+}
+
+.yaklasan-link {
+  text-decoration: none;
+  display: block;
+}
+
+.yaklasan-spotlight {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, var(--ana-bordo), var(--koyu-bordo));
+  color: var(--beyaz);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.yaklasan-spotlight::before {
+  content: '⭐';
+  font-size: 0.75rem;
+}
+
+.yaklasan-icerik {
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.yaklasan-tarih-kutu {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--ana-bordo), var(--acik-bordo));
+  color: var(--beyaz);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.yaklasan-tarih-kutu .gun {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: var(--font-baslik);
+}
+
+.yaklasan-tarih-kutu .ay {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.yaklasan-bilgi {
+  flex: 1;
+  min-width: 0;
+}
+
+.yaklasan-baslik {
+  font-size: 0.9rem;
+  color: var(--koyu-gri);
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.yaklasan-mekan {
+  font-size: 0.75rem;
+  color: var(--orta-gri);
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.yaklasan-kategori-badge {
+  display: inline-flex;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--beyaz);
+  font-weight: 600;
+}
+
+.yaklasan-gorsel-mini {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .takvim-duzen {
+    flex-direction: column;
+  }
+  .takvim-sidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .takvim-grid-kapsayici {
+    overflow-x: auto;
+  }
+  .takvim-grid {
+    min-width: 400px;
+  }
+  .takvim-gunler-baslik {
+    min-width: 400px;
+  }
+  .takvim-hero {
+    padding: 40px 16px;
+  }
+  .takvim-baslik {
+    font-size: 1.25rem;
+  }
+  .gun-etkinlik-kart {
+    flex-direction: column;
+  }
+  .kart-detay-gorsel {
+    width: 100%;
+    min-height: 140px;
+    max-height: 160px;
+  }
+  .gun-etkinlik-link {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .etkinlik-marker {
+    width: 18px;
+    height: 18px;
+    font-size: 0.55rem;
+  }
+}

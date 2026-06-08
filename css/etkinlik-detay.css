@@ -1,0 +1,276 @@
+/*
+  etkinlik-detay.css
+  Detay sayfasına özel stiller: hero başlık, iki sütunlu düzen,
+  bilgi kartı (sticky), program listesi, benzer etkinlikler.
+*/
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  color: var(--orta-gri);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.breadcrumb li::after {
+  content: '›';
+  margin-left: 0.4rem;
+  color: var(--orta-gri);
+}
+
+.breadcrumb li:last-child::after {
+  content: '';
+}
+
+.breadcrumb a {
+  color: var(--orta-gri);
+}
+
+.breadcrumb a:hover {
+  color: var(--ana-bordo);
+}
+
+.breadcrumb li:last-child {
+  color: var(--koyu-gri);
+  font-weight: 600;
+}
+
+/* ---------- Detay Hero ---------- */
+.detay-hero {
+  position: relative;
+  color: var(--beyaz);
+  padding: 3.5rem 1rem 5rem;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.detay-hero-resim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.detay-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.75) 100%);
+  z-index: 1;
+}
+
+.detay-hero-icerik {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detay-hero h1 {
+  color: var(--beyaz);
+  font-size: 2.75rem;
+  margin: 0.5rem 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.detay-hero .hero-kategori-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--beyaz);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.detay-hero .hero-tarih {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+/* ---------- İki Sütunlu İçerik ---------- */
+.detay-ana {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem 0 3rem;
+}
+
+@media (max-width: 991px) {
+  .detay-ana {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Sol Sütun ---------- */
+.detay-bolumler .detay-bolum {
+  background: var(--beyaz);
+  border-radius: var(--yuvarlak-orta);
+  padding: 2rem;
+  box-shadow: var(--golge-hafif);
+  margin-bottom: 1.5rem;
+}
+
+.detay-bolum h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--acik-gri);
+}
+
+.detay-aciklama p {
+  line-height: 1.8;
+  color: var(--koyu-gri);
+  margin-bottom: 1rem;
+}
+
+/* Program */
+.program-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.program-satir {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--krem-beyaz);
+  border-left: 4px solid var(--ana-bordo);
+  border-radius: var(--yuvarlak-kucuk);
+}
+
+.program-saat {
+  font-family: var(--font-baslik);
+  font-weight: 700;
+  color: var(--ana-bordo);
+  font-size: 1.05rem;
+  min-width: 60px;
+}
+
+.program-baslik {
+  color: var(--koyu-gri);
+  font-weight: 500;
+}
+
+/* Etiketler */
+.etiketler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.etiket {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  background: var(--acik-gri);
+  color: var(--orta-gri);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--gecis-hizli);
+}
+
+.etiket:hover {
+  background: var(--ana-bordo);
+  color: var(--beyaz);
+}
+
+/* ---------- Sağ Sütun — Bilgi Kartı ---------- */
+.bilgi-karti {
+  background: var(--beyaz);
+  border-radius: var(--yuvarlak-orta);
+  padding: 1.75rem;
+  box-shadow: var(--golge-orta);
+  position: sticky;
+  top: 6rem;
+  border-top: 4px solid var(--ana-bordo);
+}
+
+.bilgi-satir {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--acik-gri);
+  font-size: 0.95rem;
+}
+
+.bilgi-satir:last-of-type {
+  border-bottom: none;
+}
+
+.bilgi-ikon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.bilgi-baslik {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--orta-gri);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.bilgi-deger {
+  color: var(--koyu-gri);
+  font-weight: 500;
+}
+
+.bilgi-karti .buton {
+  margin-top: 1rem;
+}
+
+.bilgi-karti .doluluk-sari {
+  margin-top: 0.25rem;
+}
+
+/* ---------- Benzer Etkinlikler ---------- */
+.benzer-bolum {
+  padding: 2rem 0 3rem;
+  background: var(--acik-gri);
+}
+
+.benzer-liste {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .benzer-liste {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .benzer-liste {
+    grid-template-columns: 1fr;
+  }
+  .detay-hero h1 {
+    font-size: 1.75rem;
+  }
+  .detay-bolumler .detay-bolum {
+    padding: 1.25rem;
+  }
+}

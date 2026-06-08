@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etkinlik Takvimi — SCÜ Etkinlik Portalı</title>
+  <meta name="description" content="Sivas Cumhuriyet Üniversitesi kampüs etkinliklerini aylık takvim üzerinde görüntüleyin." />
+  <link rel="icon" type="image/png" href="gorseller/logo/cumhuriyet-logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/genel.css" />
+  <link rel="stylesheet" href="css/bilesenler.css" />
+  <link rel="stylesheet" href="css/takvim.css" />
+</head>
+<body>
+  <div id="headerYuvasi"></div>
+
+  <main class="sayfa-icerik">
+    <!-- Takvim Hero -->
+    <section class="takvim-hero">
+      <div class="hero-icerik">
+        <h1>Etkinlik Takvimi</h1>
+        <p class="hero-alt-baslik">Tüm kampüs etkinliklerini takvim üzerinde görüntüleyin</p>
+      </div>
+    </section>
+
+    <!-- Takvim Ana Alanı -->
+    <section class="bolum">
+      <div class="kapsayici">
+        <div class="takvim-duzen">
+          <!-- Takvim Grid -->
+          <div class="takvim-ana">
+            <!-- Takvim Kontrolleri -->
+            <div class="takvim-kontroller">
+              <button class="takvim-nav-buton" id="oncekiAyButon" aria-label="Önceki ay">‹</button>
+              <h2 class="takvim-baslik" id="takvimBaslik"></h2>
+              <button class="takvim-nav-buton" id="sonrakiAyButon" aria-label="Sonraki ay">›</button>
+              <button class="buton buton-ikincil buton-kucuk takvim-bugun-buton" id="bugunButon">Bugün</button>
+            </div>
+
+            <!-- Takvim Tablosu -->
+            <div class="takvim-grid-kapsayici">
+              <div class="takvim-gunler-baslik">
+                <span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span>
+              </div>
+              <div class="takvim-grid" id="takvimGrid"></div>
+            </div>
+
+            <!-- Seçili Gün Detayı -->
+            <div class="secili-gun-detay" id="seciliGunDetay">
+              <div class="secili-gun-baslik" id="seciliGunBaslik">
+                <h3>📅 Bir gün seçin</h3>
+                <p>Etkinlik olan günlere tıklayarak o günün etkinliklerini görüntüleyin.</p>
+              </div>
+              <div class="secili-gun-liste" id="seciliGunListe"></div>
+            </div>
+          </div>
+
+          <!-- Yaklaşan Etkinlikler Sidebar -->
+          <aside class="takvim-sidebar">
+            <h3 class="sidebar-baslik">🗓️ Yaklaşan Etkinlikler</h3>
+            <div class="yaklasan-liste" id="yaklasanListe">
+              <div class="yukleniyor">Yükleniyor...</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footerYuvasi"></div>
+
+  <script src="js/etkinlik-verileri.js"></script>
+  <script src="js/ortak.js"></script>
+  <script src="js/takvim.js"></script>
+</body>
+</html>

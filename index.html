@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sivas Cumhuriyet Üniversitesi — Etkinlik Portalı</title>
+  <meta name="description" content="Sivas Cumhuriyet Üniversitesi kampüsündeki konser, tiyatro, konferans, seminer ve diğer etkinlikleri keşfedin." />
+  <link rel="icon" type="image/png" href="gorseller/logo/cumhuriyet-logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/genel.css" />
+  <link rel="stylesheet" href="css/bilesenler.css" />
+  <link rel="stylesheet" href="css/ana-sayfa.css" />
+</head>
+<body>
+  <div id="headerYuvasi"></div>
+
+  <main class="sayfa-icerik">
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-icerik">
+        <h1>Kampüste Neler Oluyor?</h1>
+        <p class="hero-alt-baslik">Sivas Cumhuriyet Üniversitesi'ndeki tüm etkinlikleri keşfedin</p>
+        <div class="hero-istatistikler" id="heroIstatistikler">
+          <span>🎭 <strong id="statEtkinlik">—</strong> Etkinlik</span>
+          <span>📅 Bu Ay <strong id="statBuAy">—</strong> Etkinlik</span>
+          <span>🏛️ <strong id="statMekan">—</strong> Farklı Mekan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Öne Çıkan Etkinlikler -->
+    <section class="bolum bolum-one-cikan">
+      <div class="kapsayici">
+        <h2 class="bolum-baslik">Öne Çıkan Etkinlikler</h2>
+        <div class="one-cikan-grid" id="oneCikanAlan">
+          <div class="yukleniyor">Etkinlikler yükleniyor...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kategori Filtreleri -->
+    <section class="bolum bolum-filtreler">
+      <div class="kapsayici">
+        <h2 class="bolum-baslik">Tüm Etkinlikler</h2>
+
+        <div class="kategori-filtre-kapsayici">
+          <div class="kategori-filtreler" id="kategoriFiltreleri" role="tablist" aria-label="Kategori filtreleri"></div>
+        </div>
+
+        <div class="kontrol-satiri">
+          <div class="sol-kontrol">
+            <label for="siralamaSecimi" class="kontrol-etiket">Sırala:</label>
+            <select id="siralamaSecimi" class="form-kontrol form-kontrol-kucuk">
+              <option value="tarih-yakin">Tarihe Göre (Yakın)</option>
+              <option value="tarih-uzak">Tarihe Göre (Uzak)</option>
+              <option value="isim-az">İsme Göre (A-Z)</option>
+              <option value="kategori">Kategoriye Göre</option>
+            </select>
+          </div>
+          <div class="sag-kontrol">
+            <span class="sonuc-sayisi" id="sonucSayisi"></span>
+            <div class="gorunum-butonlari" role="group" aria-label="Görünüm seçimi">
+              <button class="gorunum-buton aktif" id="gridButon" aria-label="Grid görünümü" title="Grid">▦</button>
+              <button class="gorunum-buton" id="listeButon" aria-label="Liste görünümü" title="Liste">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="aktif-filtre-etiketleri" id="aktifFiltreler"></div>
+
+        <!-- Etkinlik Listesi -->
+        <div class="etkinlik-listesi" id="etkinlikListesi"></div>
+
+        <div class="daha-fazla-alan">
+          <button class="buton buton-ana" id="dahaFazlaButon">Daha Fazla Göster</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footerYuvasi"></div>
+
+  <script src="js/etkinlik-verileri.js"></script>
+  <script src="js/ortak.js"></script>
+  <script src="js/ana-sayfa.js"></script>
+</body>
+</html>

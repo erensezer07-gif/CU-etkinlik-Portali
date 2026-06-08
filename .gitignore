@@ -1,0 +1,14 @@
+# İşletim sistemi dosyaları
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+
+# Editör / IDE
+.vscode/
+.idea/
+*.swp
+
+# Loglar ve geçici dosyalar
+*.log
+*.tmp

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etkinlik Detayı — SCÜ Etkinlik Portalı</title>
+  <link rel="icon" type="image/png" href="gorseller/logo/cumhuriyet-logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/genel.css" />
+  <link rel="stylesheet" href="css/bilesenler.css" />
+  <link rel="stylesheet" href="css/etkinlik-detay.css" />
+</head>
+<body>
+  <div id="headerYuvasi"></div>
+
+  <main class="sayfa-icerik">
+    <div id="detayAlan">
+      <div class="yukleniyor">Etkinlik yükleniyor...</div>
+    </div>
+  </main>
+
+  <!-- Katılım Formu Modal -->
+  <div class="modal-arkaplan" id="katilimModal" role="dialog" aria-modal="true" aria-labelledby="modalBaslik">
+    <div class="modal-kutu">
+      <div class="modal-baslik">
+        <h3 id="modalBaslik">Katılım Formu</h3>
+        <button class="modal-kapat" id="modalKapatButon" aria-label="Kapat">×</button>
+      </div>
+      <div class="modal-govde">
+        <form id="katilimFormu" novalidate>
+          <div class="form-grubu">
+            <label for="adSoyad">Ad Soyad <span class="zorunlu">*</span></label>
+            <input type="text" id="adSoyad" class="form-kontrol" required />
+            <span class="form-hata" id="adSoyadHata"></span>
+          </div>
+          <div class="form-grubu">
+            <label for="eposta">E-posta <span class="zorunlu">*</span></label>
+            <input type="email" id="eposta" class="form-kontrol" required />
+            <span class="form-hata" id="epostaHata"></span>
+          </div>
+          <div class="form-grubu">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" class="form-kontrol" placeholder="05XXXXXXXXX" />
+            <span class="form-hata" id="telefonHata"></span>
+          </div>
+          <div class="form-grubu">
+            <label for="bolum">Bölüm/Fakülte <span class="zorunlu">*</span></label>
+            <select id="bolum" class="form-kontrol" required>
+              <option value="">Seçiniz</option>
+              <option>Mühendislik</option>
+              <option>Tıp</option>
+              <option>Fen-Edebiyat</option>
+              <option>İktisadi ve İdari Bilimler</option>
+              <option>Eğitim</option>
+              <option>Güzel Sanatlar</option>
+              <option>İlahiyat</option>
+              <option>Hukuk</option>
+              <option>Diş Hekimliği</option>
+              <option>Eczacılık</option>
+              <option>Sağlık Bilimleri</option>
+              <option>Mimarlık</option>
+              <option>İletişim</option>
+              <option>Spor Bilimleri</option>
+              <option>Teknoloji</option>
+              <option>Turizm</option>
+              <option>Veteriner</option>
+              <option>Ziraat</option>
+              <option>Diğer</option>
+            </select>
+            <span class="form-hata" id="bolumHata"></span>
+          </div>
+          <div class="form-grubu">
+            <label for="kisiSayisi">Katılımcı Sayısı <span class="zorunlu">*</span></label>
+            <input type="number" id="kisiSayisi" class="form-kontrol" min="1" max="5" value="1" required />
+            <span class="form-hata" id="kisiSayisiHata"></span>
+          </div>
+          <div class="form-grubu">
+            <label for="not">Not</label>
+            <textarea id="not" class="form-kontrol" placeholder="Eklemek istediğiniz bir not var mı?"></textarea>
+          </div>
+          <button type="submit" class="buton buton-ana buton-buyuk">Gönder</button>
+          <div id="formBasariMesaji" class="form-basarili gizle"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="footerYuvasi"></div>
+
+  <script src="js/etkinlik-verileri.js"></script>
+  <script src="js/ortak.js"></script>
+  <script src="js/katilim-formu.js"></script>
+  <script src="js/etkinlik-detay.js"></script>
+</body>
+</html>

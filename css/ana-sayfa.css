@@ -1,0 +1,350 @@
+/*
+  ana-sayfa.css
+  index.html sayfasına özel stiller: hero banner, kategori filtreleri,
+  kontrol satırı, öne çıkan etkinlik grid'i ve "daha fazla" butonu.
+*/
+
+/* ---------- Hero Banner ---------- */
+.hero-banner {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(139, 26, 43, 0.9), rgba(107, 20, 32, 0.95)),
+    radial-gradient(circle at 20% 30%, rgba(212, 168, 67, 0.15) 0, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 168, 67, 0.1) 0, transparent 50%),
+    var(--koyu-bordo);
+  color: var(--beyaz);
+  padding: 4rem 1rem 5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 40px, rgba(255, 255, 255, 0.02) 40px 80px);
+  pointer-events: none;
+}
+
+.hero-icerik {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.hero-banner h1 {
+  color: var(--beyaz);
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-alt-baslik {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.hero-arama {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-arama-input {
+  width: 100%;
+  padding: 1rem 1.25rem 1rem 3.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--beyaz);
+  color: var(--koyu-gri);
+  box-shadow: var(--golge-orta);
+}
+
+.hero-arama-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(212, 168, 67, 0.3), var(--golge-orta);
+}
+
+.arama-ikonu {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+}
+
+.hero-istatistikler {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 1.5rem;
+}
+
+.hero-istatistikler strong {
+  color: var(--altin-sari);
+  font-family: var(--font-baslik);
+  font-size: 1.15rem;
+}
+
+/* ---------- Öne Çıkan Etkinlikler ---------- */
+.bolum-one-cikan {
+  padding-top: 3rem;
+}
+
+.one-cikan-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+  min-height: 200px;
+}
+
+.one-cikan-grid .etkinlik-karti:first-child {
+  grid-row: span 2;
+}
+
+.one-cikan-grid .etkinlik-karti:first-child .kart-gorsel {
+  height: 100%;
+  min-height: 320px;
+}
+
+.one-cikan-grid .etkinlik-karti:first-child h3 {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .one-cikan-grid {
+    grid-template-columns: 1fr;
+  }
+  .one-cikan-grid .etkinlik-karti:first-child {
+    grid-row: auto;
+  }
+}
+
+/* ---------- Kategori Filtreleri ---------- */
+.kategori-filtre-kapsayici {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kategori-filtre-kapsayici::-webkit-scrollbar {
+  height: 6px;
+}
+
+.kategori-filtre-kapsayici::-webkit-scrollbar-track {
+  background: var(--acik-gri);
+  border-radius: 3px;
+}
+
+.kategori-filtre-kapsayici::-webkit-scrollbar-thumb {
+  background: var(--ana-bordo);
+  border-radius: 3px;
+}
+
+.kategori-filtreler {
+  display: flex;
+  gap: 0.5rem;
+  min-width: min-content;
+  padding: 0.25rem;
+}
+
+.kategori-buton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  background: var(--beyaz);
+  border: 2px solid var(--kenarlik-gri);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--koyu-gri);
+  transition: var(--gecis-hizli);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.kategori-buton:hover {
+  border-color: var(--ana-bordo);
+  color: var(--ana-bordo);
+}
+
+.kategori-buton.aktif {
+  background: var(--ana-bordo);
+  border-color: var(--ana-bordo);
+  color: var(--beyaz);
+  box-shadow: var(--golge-hafif);
+}
+
+/* ---------- Kontrol Satırı ---------- */
+.kontrol-satiri {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--beyaz);
+  border-radius: var(--yuvarlak-orta);
+  box-shadow: var(--golge-hafif);
+}
+
+.sol-kontrol,
+.sag-kontrol {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.kontrol-etiket {
+  font-weight: 600;
+  color: var(--koyu-gri);
+  font-size: 0.9rem;
+}
+
+.form-kontrol-kucuk {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  width: auto;
+}
+
+.sonuc-sayisi {
+  font-size: 0.9rem;
+  color: var(--orta-gri);
+  font-weight: 500;
+}
+
+.gorunum-butonlari {
+  display: flex;
+  background: var(--acik-gri);
+  border-radius: var(--yuvarlak-kucuk);
+  overflow: hidden;
+}
+
+.gorunum-buton {
+  padding: 0.5rem 0.85rem;
+  background: transparent;
+  font-size: 1.1rem;
+  color: var(--orta-gri);
+  transition: var(--gecis-hizli);
+}
+
+.gorunum-buton:hover {
+  color: var(--ana-bordo);
+}
+
+.gorunum-buton.aktif {
+  background: var(--ana-bordo);
+  color: var(--beyaz);
+}
+
+/* ---------- Aktif Filtre Etiketleri ---------- */
+.aktif-filtre-etiketleri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.aktif-filtre-etiketleri:empty {
+  display: none;
+}
+
+.filtre-etiket {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--acik-bordo);
+  color: var(--beyaz);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.filtre-etiket button {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--beyaz);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: var(--gecis-hizli);
+}
+
+.filtre-etiket button:hover {
+  background: var(--beyaz);
+  color: var(--ana-bordo);
+}
+
+/* ---------- Etkinlik Listesi (Grid) ---------- */
+.etkinlik-listesi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.etkinlik-listesi.liste-gorunum {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 991px) {
+  .etkinlik-listesi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .etkinlik-listesi {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.daha-fazla-alan {
+  text-align: center;
+  padding: 1rem 0 2rem;
+}
+
+.daha-fazla-alan.gizle {
+  display: none;
+}
+
+/* ---------- Responsive Hero ---------- */
+@media (max-width: 767px) {
+  .hero-banner {
+    padding: 2.5rem 1rem 3rem;
+  }
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+  .hero-alt-baslik {
+    font-size: 1rem;
+  }
+  .hero-istatistikler {
+    gap: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .kontrol-satiri {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sol-kontrol,
+  .sag-kontrol {
+    justify-content: space-between;
+  }
+}
