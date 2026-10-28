@@ -7,7 +7,17 @@
 
 Sivas Cumhuriyet Üniversitesi kampüsünde düzenlenen akademik seminerleri, kariyer günlerini, kültür-sanat festivallerini ve spor etkinliklerini tek bir çatı altında listeleyen, kategoriye göre filtreleyen ve interaktif aylık takvim üzerinde gösteren modern web uygulaması.
 
-![Sivas Cumhuriyet Üniversitesi Etkinlik Portalı](assets/cu_portal_preview.png)
+## 📸 Uygulama Ekran Görüntüleri
+
+### 1. Ana Sayfa & Dinamik Kategori Filtreleme (`index.html`)
+![Ana Sayfa](screenshots/1_anasayfa.png)
+
+| 📅 Aylık İnteraktif Takvim (`takvim.html`) | 📝 Etkinlik Detay & Kayıt Formu (`etkinlik-detay.html`) |
+| :---: | :---: |
+| ![Takvim](screenshots/2_takvim.png) | ![Etkinlik Detay](screenshots/3_etkinlik_detay.png) |
+
+### 4. Hakkımızda & Üniversite Tanıtımı (`hakkimizda.html`)
+![Hakkımızda](screenshots/4_hakkimizda.png)
 
 ---
 
