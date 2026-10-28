@@ -1,31 +1,56 @@
-# Sivas Cumhuriyet Üniversitesi — Etkinlik Portalı
+# 🎓 Sivas Cumhuriyet Üniversitesi — Kampüs Etkinlik Portalı
 
-Sivas Cumhuriyet Üniversitesi kampüsünde düzenlenen etkinlikleri
-listeleyen, filtreleyen ve takvim üzerinde gösteren web uygulaması.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-Grid_&_Flexbox-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
+![Responsive](https://img.shields.io/badge/Tasarım-Mobil_Uyumlu-10B981)
 
-## Teknolojiler
-- HTML5
-- CSS3 (Flexbox, Grid, CSS Variables, Media Queries)
-- Vanilla JavaScript (ES6+)
-- Google Fonts (Merriweather + Inter)
+Sivas Cumhuriyet Üniversitesi kampüsünde düzenlenen akademik seminerleri, kariyer günlerini, kültür-sanat festivallerini ve spor etkinliklerini tek bir çatı altında listeleyen, kategoriye göre filtreleyen ve interaktif aylık takvim üzerinde gösteren modern web uygulaması.
 
-## Kurulum
-1. Proje klasörünü bilgisayarınıza indirin
-2. Herhangi bir code editöründe açın (VS Code önerilir)
-3. `index.html` dosyasını tarayıcıda açın
-   - ÖNEMLİ: JSON dosyası fetch ile yüklendiği için
-     doğrudan dosya olarak açmak yerine bir local server kullanın:
-   - VS Code: "Live Server" eklentisini kurun → sağ tıklayıp "Open with Live Server"
-   - Veya terminalde: `python -m http.server 8000` → tarayıcıda localhost:8000
+![Sivas Cumhuriyet Üniversitesi Etkinlik Portalı](assets/cu_portal_preview.png)
 
-## Sayfa Yapısı
-- `index.html` → Ana Sayfa (etkinlik listesi, arama, filtreleme)
-- `etkinlik-detay.html` → Etkinlik Detay (dinamik içerik, katılım formu)
-- `takvim.html` → Takvim Görünümü (aylık takvim)
-- `hakkimizda.html` → Hakkımızda (portal ve üniversite bilgisi)
+---
 
-## Hazırlayan
-- Ad Soyad: [Öğrenci Adı Soyadı]
-- Bölüm: [Bölüm Adı]
-- Ders: [Ders Adı]
-- Dönem: 2024-2025 Bahar
+## ✨ Öne Çıkan Özellikler
+
+* **🔍 Anlık Arama ve Kategori Filtreleme:** Bilim & Teknoloji, Kültür & Sanat, Kariyer ve Spor etkinlikleri arasında sayfa yenilenmeden dinamik filtreleme.
+* **📅 İnteraktif Aylık Takvim (`takvim.html`):** Etkinlik yoğunluğunu gün bazında görüntüleme ve ilgili güne tıklayarak etkinlik detayına geçiş.
+* **📝 Dinamik Etkinlik Detay ve Katılım Formu (`etkinlik-detay.html`):** URL parametreleriyle JSON veri kaynağından (`veri/etkinlikler.json`) beslenen detay sayfası ve öğrenci kayıt formu.
+* **📱 Tam Duyarlı (Responsive) Tasarım:** CSS Variables, Flexbox ve CSS Grid mimarisiyle masaüstü, tablet ve mobil cihazlara tam uyum.
+
+---
+
+## 📁 Sayfa ve Klasör Yapısı
+
+```text
+CU-etkinlik-Portali/
+├── index.html            # Ana Sayfa (Hero, arama, kategori filtreleme ve etkinlik kartları)
+├── etkinlik-detay.html   # Dinamik etkinlik detayları, konuşmacı bilgisi ve katılım formu
+├── takvim.html           # Aylık interaktif etkinlik takvimi görünümü
+├── hakkimizda.html       # Portal ve Sivas Cumhuriyet Üniversitesi tanıtım sayfası
+├── css/                  # Modüler stil dosyaları ve duyarlı (responsive) tasarım kuralları
+├── js/                   # JSON veri çekme (fetch), filtreleme ve takvim algoritmaları
+├── veri/                 # Etkinlik veri seti (JSON)
+└── gorseller/            # Kurumsal logo ve etkinlik görselleri
+```
+
+---
+
+## 🚀 Kurulum ve Çalıştırma
+
+Uygulama etkinlik verilerini `fetch` API ile JSON dosyasından okuduğu için yerel bir HTTP sunucusu ile çalıştırılmalıdır:
+
+```bash
+# Seçenek 1: Python yerleşik sunucusu ile başlatma
+python -m http.server 8000
+# Tarayıcıda açın: http://localhost:8000
+
+# Seçenek 2: VS Code Live Server eklentisi
+# index.html dosyasına sağ tıklayıp "Open with Live Server" seçeneğine tıklayın.
+```
+
+---
+
+## 👨‍💻 Geliştirici
+* **Hazırlayan:** Eren Sezer — Sivas Cumhuriyet Üniversitesi, Bilgisayar Mühendisliği Bölümü
+* **GitHub:** [@erensezer07-gif](https://github.com/erensezer07-gif)
